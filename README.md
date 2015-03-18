@@ -1,6 +1,10 @@
 Platform Developer Study Guide
 ==============================
 
+Every now and then, we meet a developer who might like to work for One iota, but isn't quite ready for one reason or another. Over the years, we've directed them to various resources, suggested small projects, and offered advice on things to swot up on. We've decided to put that advice together in one public document so that we might develop it further.
+
+In the MESH Platform team of One iota, we're what you might call 'half stack' developers. We look after everything from a machine-readable API down to databases and other back-end services. We very rarely get directly involved in front-end coding. The skills and techniques below are things that _we_ find useful on a day to day basis. A rough covering of these areas will get you in a MESH frame of mind.
+
 ##Key Skills
 
 ###Object Oriented Programming
@@ -57,40 +61,45 @@ We run everything in the [Amazon Web Services](https://aws.amazon.com) cloud. We
 ####Amazon Web Services Terminology
 We tend to assault new developers with a barrage of acronyms and initialisms. AWS is especially bad for this. If you're working on personal projects, you could do a lot worse than run them on AWS. That can give you a head start with the jargon.
 
-###NoSQL Databases
+###Distributed Version Control
+We've been using Mercurial since day one here, but we're steadily moving towards git.
 
+####Recommended Reading
+- [Atlassian's Git Tutorials](https://www.atlassian.com/git/tutorials) are great.
+- [Joel Spolsky's HgInit](http://hginit.com) is a great introduction to Mercurial.
+
+###NoSQL Databases
+We're steadily transitioning a lot of our data from a relational database (MySQL) to Amazon's [Dynamo DB](https://aws.amazon.com/dynamo). Each of these 'NoSQL' databases have their own quirks and constraints, but a general understanding would be useful in assessing and reasoning about them.
+
+####Recommended Reading
+- [NoSQL Distilled](http://www.amazon.co.uk/dp/0321826620) is a friendly survey of the field.
+- [Distributed Systems for Fun and Profit](http://book.mixu.net/distsys/) is a good read if you want to get into the details of how databases like these are built.
 
 ###Relational Databases
-
+We do still have a great deal of data in MySQL. Our use of MySQL isn't particularly fancy, so you'll find very little that wouldn't translate to another RDBMS. To be honest, it's rare we write a `GROUP_CONCAT()`, never mind a stored procedure. That said, some basic querying and relational database design can't hurt.
 
 ###Cool Things We're Not Doing (Yet)
-It's probably worth noting a few hot topics that we _don't_ have much use for at present. We wouldn't want to rule them out, but it's fair to say you'd be unlikely to use them on day one.
+It's probably worth noting a few hot topics that we're _not_ actively pursuing right now. We wouldn't want to rule them out, but it's fair to say you'd be unlikely to use them on day one.
 
 - Agile Methodologies
 - Functional Programming
 - Big Data (Hadoop, etc.)
 - Machine Learning
 
-##Project Ideas --- Useful
+##Project Ideas
+
+Here are a couple of ideas for little projects --- some useful, some frivolous --- that would exercise a lot of the skills described above.
 
 ###Email Service
 
-We send hundreds of emails daily for customer sign-up, order confirmation, despatch notifications, etc. At present, our emailing code is tied up in the main platform codebase, so we need to push a code change to production just to change the text in an email. We'd like to break out our emailing functions into a stand-alone service.
+We send hundreds of emails daily for customer sign-up, order confirmation, despatch notifications, etc. At present, our emailing code is tied up in the main platform codebase. We'd like to break out our emailing functions into a stand-alone service.
 
 The service will need to:
 
-- Store/edit email templates. These will be HTML and plain text, with placeholders for variables. They should be held in a database.
+- Store/edit email templates. These will be HTML and plain text, with placeholders for variables.
 - Receive requests to send emails. It will need to put variables from the data given into placeholders, and integrate with Amazon Web Services' [Simple Email Service][SES] to send the email from the correct address.
 
 We have some existing PHP code that could be used for parts of this.
-
-###Database Waste Detector
-
-We run a suite of tests on our platform frequently to check that new changes haven't broken anything. At the end of each test, we tidy up the database used, ready for the next test. It would be useful to have an automated tool look at the database and make sure that the code hasn't left any "waste" behind. For example, deleting orphaned rows. We don't use referential integrity constraints, so it's possible that a parent row can deleted without deleting all of its children. Given table/key relationships, the tool should find any rows that should have been deleted.
-
-##Project Ideas --- Frivolous
-
-We have an air hockey table in the office. There are a couple of software tools that could help us improve.
 
 ###Air Hockey Scoreboard
 
@@ -101,17 +110,6 @@ A scoreboard system could:
 - Maintain leaderboard.
 - Compute statistics (most consistent, best defence, etc.)
 - Notify players if they haven't played for a while.
-
-###Air Hockey Analysis
-
-I'd love to see this done.
-
-Basically, a limited version of [this project](http://cienciaycacharreo.blogspot.co.uk/2014/02/new-project-air-hockey-robot-3d-printer.html). Have a computer analyse the movement of the puck during an air hockey game and give its analysis.
-
-- Use computer vision to analyse air hockey games.
-- Classify shots played / scored.
-- Generate match statistics (shots on target, etc.)
-- Feed back to players on strengths weaknesses.
 
 [HipChat]: https://www.hipchat.com
 [SES]: https://aws.amazon.com/ses/
