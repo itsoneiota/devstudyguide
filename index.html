@@ -1,0 +1,222 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>DevStudyGuide by itsoneiota</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>DevStudyGuide</h1>
+        <p>Developer Study Guide</p>
+
+        <p class="view"><a href="https://github.com/itsoneiota/devstudyguide">View the Project on GitHub <small>itsoneiota/devstudyguide</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/itsoneiota/devstudyguide/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/itsoneiota/devstudyguide/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/itsoneiota/devstudyguide">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="platform-developer-study-guide" class="anchor" href="#platform-developer-study-guide" aria-hidden="true"><span class="octicon octicon-link"></span></a>Platform Developer Study Guide</h1>
+
+<p>Every now and then, we meet a developer who might like to work for One iota, but isn't quite ready for one reason or another. Over the years, we've directed them to various resources, suggested small projects, and offered advice on things to swot up on. We've decided to put that advice together in one public document so that we might develop it further.</p>
+
+<p>In the MESH Platform team of One iota, we're what you might call 'half stack' developers. We look after everything from a machine-readable API down to databases and other back-end services. We very rarely get directly involved in front-end coding. The skills and techniques below are things that <em>we</em> find useful on a day to day basis. A rough covering of these areas will get you in a MESH frame of mind.</p>
+
+<h2>
+<a id="key-skills" class="anchor" href="#key-skills" aria-hidden="true"><span class="octicon octicon-link"></span></a>Key Skills</h2>
+
+<h3>
+<a id="object-oriented-programming" class="anchor" href="#object-oriented-programming" aria-hidden="true"><span class="octicon octicon-link"></span></a>Object Oriented Programming</h3>
+
+<p>Where we can, we like to model problems as objects. We have objects that represent real things (e.g. <code>Product</code>, <code>Customer</code>, <code>Cart</code>) and objects that perform particular roles handling API requests and data (e.g. <code>PaymentController</code> or <code>DeliveryMethodMapper</code>).</p>
+
+<p>You should be comfortable talking about objects, and be familiar with the design decisions around how to divide functionality into objects.</p>
+
+<h4>
+<a id="recommended-reading" class="anchor" href="#recommended-reading" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recommended Reading</h4>
+
+<ul>
+<li>
+<a href="http://www.amazon.co.uk/dp/0596009208">Head First Java</a>: It's a Java book, but has an excellent description of OOP concepts. OOP in PHP is largely ripped off from Java, so it will look pretty familiar. Feel free to skip the chapters on GUIs and Concurrency.</li>
+</ul>
+
+<h3>
+<a id="design-patterns" class="anchor" href="#design-patterns" aria-hidden="true"><span class="octicon octicon-link"></span></a>Design Patterns</h3>
+
+<p>Design Patterns are a useful common vocabulary for larger software systems. We'll quite often talk about a Strategy or an Observer, which can be a useful shorthand for a structure involving several classes and interfaces.</p>
+
+<h4>
+<a id="recommended-reading-1" class="anchor" href="#recommended-reading-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recommended Reading</h4>
+
+<ul>
+<li>
+<a href="http://www.amazon.co.uk/dp/0596007124">Head First Design Patterns</a>: Another Head First book. The books weigh a ton, but they do a great job of making some quite techy stuff readable. This is much more approachable than the classic <a href="http://www.amazon.co.uk/dp/0201633612">Gang of Four</a>.</li>
+</ul>
+
+<h3>
+<a id="php" class="anchor" href="#php" aria-hidden="true"><span class="octicon octicon-link"></span></a>PHP</h3>
+
+<p>To say that PHP is our language of choice might be a bit strong. It's what we use. It has its idiosyncrasies, but it gets the job done.</p>
+
+<p>An understanding of PHP isn't essential for new recruits --- people quickly learn to hate it like the rest of us --- but it may help to get a rough handle on it.</p>
+
+<p>If you're coming from a statically typed language like Java or C#, you probably ought to know <a href="http://php.net/manual/en/language.types.type-juggling.php">some of the terrible things PHP does with types</a>.</p>
+
+<p>Otherwise, some <a href="http://php.net/manual/en/book.strings.php">string manipulation</a> and a bit of <a href="http://php.net/manual/en/book.array.php">array bashing</a> should stand you in good stead.</p>
+
+<p>It may also help to know what's in the <a href="http://php.net/manual/en/book.spl.php">PHP Standard Library</a>. It contains several common data structures and nice object interfaces to handle common tasks (e.g. iterating over the filesystem).</p>
+
+<h3>
+<a id="test-driven-development" class="anchor" href="#test-driven-development" aria-hidden="true"><span class="octicon octicon-link"></span></a>Test-Driven Development</h3>
+
+<p>We're big fans of test-driven development. We use <a href="https://phpunit.de">PHPUnit</a> for unit tests and <a href="http://behat.org">Behat</a> for end-to-end API tests. Those particular tools are far less important than the general concept of writing automated tests, and designing systems so that they can be tested.</p>
+
+<h4>
+<a id="recommended-reading-2" class="anchor" href="#recommended-reading-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recommended Reading</h4>
+
+<ul>
+<li>
+<a href="http://www.amazon.co.uk/dp/0321146530">Test Driven Development</a> is the classic text on the practice, and is a good introduction.</li>
+<li>
+<a href="http://googletesting.blogspot.co.uk">The Google Testing Blog</a> is a great resource once you're up and running. In particular, their <a href="http://googletesting.blogspot.co.uk/search/label/TotT">Testing on the Toilet</a> series of short articles cover best practices and common mistakes.</li>
+</ul>
+
+<h3>
+<a id="json" class="anchor" href="#json" aria-hidden="true"><span class="octicon octicon-link"></span></a>JSON</h3>
+
+<p>JSON is a human-friendly machine-readable format, which we use pretty heavily, for APIs, config files, storage, all sorts. <a href="http://json.org">There's not much to know about JSON itself</a>, but it might help you to have a look. It would also be good to look at <a href="http://php.net/json">how PHP handles JSON</a>.</p>
+
+<p>If you're feeling adventurous, you could take a look at <a href="http://json-schema.org">JSON Schema</a>, which is a nice way of describing what can and should be in a JSON document. We use this to validate API requests, and to describe our APIs.</p>
+
+<h3>
+<a id="rest" class="anchor" href="#rest" aria-hidden="true"><span class="octicon octicon-link"></span></a>REST</h3>
+
+<p>This one can inspire raging debates with pseudo-religious fervour. Don't get bogged down in that, and don't bother with <a href="http://www.ics.uci.edu/%7Efielding/pubs/dissertation/fielding_dissertation.pdf">Roy Fielding's dissertation</a> unless you're feeling particularly scholarly. For us, all you really need to grok are:</p>
+
+<ul>
+<li>
+<a href="https://en.wikipedia.org/wiki/Uniform_resource_identifier">URIs</a> as identifiers for resources</li>
+<li>
+<a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods">HTTP methods</a> and what they do</li>
+<li><a href="https://en.wikipedia.org/wiki/HATEOAS">Hypermedia as the Engine of Application State</a></li>
+</ul>
+
+<h4>
+<a id="recommended-reading-3" class="anchor" href="#recommended-reading-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recommended Reading</h4>
+
+<ul>
+<li><a href="http://www.amazon.co.uk/dp/0596529260">RESTFul Web Services</a></li>
+<li><a href="http://martinfowler.com/articles/richardsonMaturityModel.html">Richardson Maturity Model</a></li>
+</ul>
+
+<h3>
+<a id="cloud-infrastructure" class="anchor" href="#cloud-infrastructure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cloud Infrastructure</h3>
+
+<p>We run everything in the <a href="https://aws.amazon.com">Amazon Web Services</a> cloud. We use quite a few of the services provided by AWS, such as <a href="https://aws.amazon.com/ec2">servers</a>, <a href="https://aws.amazon.com/s3">storage</a>, <a href="https://aws.amazon.com/rds">relational databases</a>, <a href="https://aws.amazon.com/dynamo">NoSQL databases</a>, <a href="https://aws.amazon.com/elasticache">caches</a>, <a href="https://aws.amazon.com/sqs">message queues</a>, <a href="https://aws.amazon.com/elasticbeanstalk">deployment tools</a>, <a href="https://aws.amazon.com/cloudformation">infrastructure as code</a>, and more. It would be good to understand what these are and how you might use them to build large web-scale systems. If you haven't used these before, it <em>might</em> help to look at how AWS does things. If you're familiar with them from somewhere else, don't worry too much about the AWS-specific details.</p>
+
+<h4>
+<a id="amazon-web-services-terminology" class="anchor" href="#amazon-web-services-terminology" aria-hidden="true"><span class="octicon octicon-link"></span></a>Amazon Web Services Terminology</h4>
+
+<p>We tend to assault new developers with a barrage of acronyms and initialisms. AWS is especially bad for this. If you're working on personal projects, you could do a lot worse than run them on AWS. That can give you a head start with the jargon.</p>
+
+<h3>
+<a id="distributed-version-control" class="anchor" href="#distributed-version-control" aria-hidden="true"><span class="octicon octicon-link"></span></a>Distributed Version Control</h3>
+
+<p>We've been using Mercurial since day one here, but we're steadily moving towards git.</p>
+
+<h4>
+<a id="recommended-reading-4" class="anchor" href="#recommended-reading-4" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recommended Reading</h4>
+
+<ul>
+<li>
+<a href="https://www.atlassian.com/git/tutorials">Atlassian's Git Tutorials</a> are great.</li>
+<li>
+<a href="http://hginit.com">Joel Spolsky's HgInit</a> is a great introduction to Mercurial.</li>
+</ul>
+
+<h3>
+<a id="nosql-databases" class="anchor" href="#nosql-databases" aria-hidden="true"><span class="octicon octicon-link"></span></a>NoSQL Databases</h3>
+
+<p>We're steadily transitioning a lot of our data from a relational database (MySQL) to Amazon's <a href="https://aws.amazon.com/dynamo">Dynamo DB</a>. Each of these 'NoSQL' databases have their own quirks and constraints, but a general understanding would be useful in assessing and reasoning about them.</p>
+
+<h4>
+<a id="recommended-reading-5" class="anchor" href="#recommended-reading-5" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recommended Reading</h4>
+
+<ul>
+<li>
+<a href="http://www.amazon.co.uk/dp/0321826620">NoSQL Distilled</a> is a friendly survey of the field.</li>
+<li>
+<a href="http://book.mixu.net/distsys/">Distributed Systems for Fun and Profit</a> is a good read if you want to get into the details of how databases like these are built.</li>
+</ul>
+
+<h3>
+<a id="relational-databases" class="anchor" href="#relational-databases" aria-hidden="true"><span class="octicon octicon-link"></span></a>Relational Databases</h3>
+
+<p>We do still have a great deal of data in MySQL. Our use of MySQL isn't particularly fancy, so you'll find very little that wouldn't translate to another RDBMS. To be honest, it's rare we write a <code>GROUP_CONCAT()</code>, never mind a stored procedure. That said, some basic querying and relational database design can't hurt.</p>
+
+<h3>
+<a id="cool-things-were-not-doing-yet" class="anchor" href="#cool-things-were-not-doing-yet" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cool Things We're Not Doing (Yet)</h3>
+
+<p>It's probably worth noting a few hot topics that we're <em>not</em> actively pursuing right now. We wouldn't want to rule them out, but it's fair to say you'd be unlikely to use them on day one.</p>
+
+<ul>
+<li>Agile Methodologies</li>
+<li>Functional Programming</li>
+<li>Big Data (Hadoop, etc.)</li>
+<li>Machine Learning</li>
+</ul>
+
+<h2>
+<a id="project-ideas" class="anchor" href="#project-ideas" aria-hidden="true"><span class="octicon octicon-link"></span></a>Project Ideas</h2>
+
+<p>Here are a couple of ideas for little projects --- some useful, some frivolous --- that would exercise a lot of the skills described above.</p>
+
+<h3>
+<a id="email-service" class="anchor" href="#email-service" aria-hidden="true"><span class="octicon octicon-link"></span></a>Email Service</h3>
+
+<p>We send hundreds of emails daily for customer sign-up, order confirmation, despatch notifications, etc. At present, our emailing code is tied up in the main platform codebase. We'd like to break out our emailing functions into a stand-alone service.</p>
+
+<p>The service will need to:</p>
+
+<ul>
+<li>Store/edit email templates. These will be HTML and plain text, with placeholders for variables.</li>
+<li>Receive requests to send emails. It will need to put variables from the data given into placeholders, and integrate with Amazon Web Services' <a href="https://aws.amazon.com/ses/">Simple Email Service</a> to send the email from the correct address.</li>
+</ul>
+
+<p>We have some existing PHP code that could be used for parts of this.</p>
+
+<h3>
+<a id="air-hockey-scoreboard" class="anchor" href="#air-hockey-scoreboard" aria-hidden="true"><span class="octicon octicon-link"></span></a>Air Hockey Scoreboard</h3>
+
+<p>A scoreboard system could:</p>
+
+<ul>
+<li>Register players.</li>
+<li>Keep track of games played.</li>
+<li>Maintain leaderboard.</li>
+<li>Compute statistics (most consistent, best defence, etc.)</li>
+<li>Notify players if they haven't played for a while.</li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/itsoneiota">itsoneiota</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
