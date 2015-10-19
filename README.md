@@ -62,7 +62,7 @@ We run everything in the [Amazon Web Services](https://aws.amazon.com) cloud. We
 We tend to assault new developers with a barrage of acronyms and initialisms. AWS is especially bad for this. If you're working on personal projects, you could do a lot worse than run them on AWS. That can give you a head start with the jargon.
 
 ###Distributed Version Control
-We've been using Mercurial since day one here, but we're steadily moving towards git.
+We use git. Nothing fancy; no mind-melting branching flows. Just committing and pushing, really.
 
 ####Recommended Reading
 - [Atlassian's Git Tutorials](https://www.atlassian.com/git/tutorials) are great.
