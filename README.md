@@ -19,7 +19,9 @@ You should be comfortable talking about objects, and be familiar with the design
 Design Patterns are a useful common vocabulary for larger software systems. We'll quite often talk about a Strategy or an Observer, which can be a useful shorthand for a structure involving several classes and interfaces.
 
 ####Recommended Reading
-- [Head First Design Patterns](http://www.amazon.co.uk/dp/0596007124): Another Head First book. The books weigh a ton, but they do a great job of making some quite techy stuff readable. This is much more approachable than the classic [Gang of Four](http://www.amazon.co.uk/dp/0201633612).
+- [Head First Design Patterns](http://www.amazon.co.uk/dp/0596007124): Another Head First book. The books weigh a ton, but they do a great job of making some quite techy stuff readable.
+- [Design Patterns for Humans](https://github.com/kamranahmedse/design-patterns-for-humans/blob/master/README.md) looks pretty decent, and it's free.
+- The original [Gang of Four](http://www.amazon.co.uk/dp/0201633612) is a classic, if a bit less approachable.
 
 ###PHP
 To say that PHP is our language of choice might be a bit strong. It's what we use. It has its idiosyncrasies, but it gets the job done.
